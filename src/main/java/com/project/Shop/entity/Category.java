@@ -1,0 +1,25 @@
+package com.project.Shop.entity;
+
+import lombok.*;
+import org.hibernate.annotations.Nationalized;
+
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "Category")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class Category implements Serializable {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String code;
+    
+    @Nationalized
+    //nvarchar
+    private String name;
+    private int status;
+    private Boolean deleteFlag;
+}
